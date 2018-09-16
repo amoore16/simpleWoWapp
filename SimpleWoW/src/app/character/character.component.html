@@ -1,0 +1,19 @@
+<h2> get a character </h2>
+
+<button (click)="logData()" class="waves-effect waves-light btn">{{characterName}}
+</button>
+
+<div *ngIf="showData">
+
+    
+    <h3>{{characterName}}</h3>
+    <h6>{{characterRealm}}</h6>
+    
+    <ul>
+        <li>Health: {{chrHealth}}</li>
+        <li>Mana: {{chrMana}}</li>
+        <li>Armor: {{chrArmor}}</li>
+    </ul>
+
+</div>
+
