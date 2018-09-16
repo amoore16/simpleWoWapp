@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { CharacterDBService } from '../shared/character-db.service';
 import { Character } from '../shared/character.model';
 
+declare var M: any;
 
 @Component({
   selector: 'app-add-character',
@@ -17,6 +18,12 @@ export class AddCharacterComponent implements OnInit {
   constructor(private characterDBService: CharacterDBService) { }
 
   ngOnInit() {
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+    });
   }
 
+  
 }

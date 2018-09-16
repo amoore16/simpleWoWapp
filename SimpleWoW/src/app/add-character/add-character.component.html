@@ -5,12 +5,39 @@
       <div class="card-content">
         <div class="row">
           <form #characterForm="ngForm" (ngSubmit)="onSubmit(characterForm)">
-            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="characterDBService.selectedCharacter._id">
+            <input type="hidden" name="_id" #_id="ngModel" *ngIf="characterDBService.selectedCharacter_id" [(ngModel)]="characterDBService.selectedCharacter._id">
           </form>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="character_name" type="text" class="validate">
+                  <label for="character_name">Character Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="realm" type="text" class="validate">
+                  <label for="realm">Realm</label>
+                </div>
+              </div>  
+              <div class="row">
+                <div class="input-field col s12">
+                  <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">en_us</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                  <label>Region</label>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
       <div class="card-action">
-        <btn>Submit</btn>
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+          Submit
+        </button>
       </div>
     </div>
   </div>
