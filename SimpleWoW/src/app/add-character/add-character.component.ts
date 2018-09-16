@@ -19,10 +19,10 @@ export class AddCharacterComponent implements OnInit {
 
   ngOnInit() {
     
-    document.addEventListener('DOMContentLoaded', function() {
+    
       var elems = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems);
-    });
+   
   }
 
   
