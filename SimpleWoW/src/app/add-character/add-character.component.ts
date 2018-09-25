@@ -18,11 +18,8 @@ export class AddCharacterComponent implements OnInit {
   constructor(private characterDBService: CharacterDBService) { }
 
   ngOnInit() {
-    
-    
       var elems = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems);
-   
   }
 
   

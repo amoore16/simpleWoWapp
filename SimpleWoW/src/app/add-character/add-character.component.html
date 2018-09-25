@@ -10,11 +10,11 @@
           <div class="row">
             <form class="col s12">
               <div class="row">
-                  <div class="input-field col s12">
+                  <div class="input-field col s6">
                     <select>
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="1">en_us</option>
-                      <option value="2">Option 2</option>
+                      <option value="" disabled selected>Choose your region</option>
+                      <option value="en_us">en_us</option>
+                      <option value="en_eu">en_eu</option>
                       <option value="3">Option 3</option>
                     </select>
                     <label>Region</label>
@@ -22,12 +22,12 @@
                 </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="character_name" type="text" class="validate">
-                  <label for="character_name">Character Name</label>
+                  <input id="realm" name="realm" #realm="ngModel" type="text" class="validate" [(ngModel)]="characterDBService.selectedCharacter.name" autocomplete="off" required>
+                  <label for="realm">Realm</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="realm" type="text" class="validate">
-                  <label for="realm">Realm</label>
+                  <input id="character_name" type="text" class="validate">
+                  <label for="character_name">Character Name</label>
                 </div>
               </div>  
             </form>
