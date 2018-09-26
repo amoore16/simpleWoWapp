@@ -4,34 +4,25 @@
     <div class="card">
       <div class="card-content">
         <div class="row">
-          <form #characterForm="ngForm" (ngSubmit)="onSubmit(characterForm)">
-            <input type="hidden" name="_id" #_id="ngModel" *ngIf="characterDBService.selectedCharacter_id" [(ngModel)]="characterDBService.selectedCharacter._id">
-          </form>
-          <div class="row">
-            <form class="col s12">
+          <form #characterForm="ngForm" (ngSubmit)="onSubmit(characterForm)" autocomplete="off">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="characterDBService.selectedCharacter._id">
               <div class="row">
                   <div class="input-field col s6">
-                    <select>
-                      <option value="" disabled selected>Choose your region</option>
-                      <option value="en_us">en_us</option>
-                      <option value="en_eu">en_eu</option>
-                      <option value="3">Option 3</option>
-                    </select>
-                    <label>Region</label>
+                    <label for="region">Region</label>
+                    <input id="region" name="region" type="text" [(ngModel)]="characterDBService.selectedCharacter.region" autocomplete="nope">
                   </div>
-                </div>
-              <div class="row">
-                <div class="input-field col s6">
-                  <input id="realm" name="realm" #realm="ngModel" type="text" class="validate" [(ngModel)]="characterDBService.selectedCharacter.name" autocomplete="off" required>
+              </div>
+              <div class="row">  
+                <div class="input-field col s6">  
                   <label for="realm">Realm</label>
+                  <input id="realm" name="realm" type="text" autocomplete="off" required>
                 </div>
                 <div class="input-field col s6">
-                  <input id="character_name" type="text" class="validate">
-                  <label for="character_name">Character Name</label>
+                  <input id="name" type="text" class="validate" name="name" [(ngModel)]="characterDBService.selectedCharacter.name">
+                  <label for="name">Character Name</label>
                 </div>
               </div>  
-            </form>
-          </div>
+          </form>          
         </div>
       </div>
       <div class="card-action">
