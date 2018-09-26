@@ -13,7 +13,24 @@ export class CharacterDBService {
   
   selectedCharacter: Character;
   characters: Character[];
+  readonly baseURL = 'http://localhost:1337/characters';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  postCharacter(char: Character) {
+    return this.http.post(this.baseURL, char);
+  }
+
+  getCharacterList() {
+    return this.http.get(this.baseURL);
+  }
+
+  putCharacter(char: Character) {
+    return this.http.put(this.baseURL + `/${char._id}`, char);
+  }
+
+  deleteCharacter(_id: string) {
+    return this.http.delete(this.baseURL + `/${_id}`);
+  }
 
 }

@@ -1,0 +1,18 @@
+TODOS:
+
+** CRUD Operations:
+    - Create
+    - Read
+    - Update
+    - Delete
+
+** Home screen:
+    - Material Cards Select Options
+        - View Characters
+        - Add Character
+    
+** When adding a character:
+    - Change 'Region' to select form
+        
+    - Make Realm Searchable / Dropdown
+        - Api Call / Quick Search
