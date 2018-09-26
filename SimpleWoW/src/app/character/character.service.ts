@@ -15,15 +15,18 @@ export class CharacterService {
   constructor(private http: HttpClient) { }
 
   character: Character = {
-    name: 'Ralor',
-    realm: 'Aerie-Peak',
-    region: 'en-US'
+    _id: '',
+    name: '',
+    realm: '',
+    locale: ''
   };
 
-  blizzUrl = 'https://us.api.battle.net/wow/character/' + this.character.realm + '/' + this.character.name + '?fields=stats&locale=' + this.character.region + '&apikey=' + this.apiKey ; 
+  blizzUrl = 'https://us.api.battle.net/wow/character/' + this.character.realm + '/' + this.character.name + '?fields=stats&locale=' + this.character.locale + '&apikey=' + this.apiKey ; 
 
   getCharacterData (): Observable<any> {
     return this.http.get(this.blizzUrl, {observe: 'response'});
   }
+
+  
 }
 

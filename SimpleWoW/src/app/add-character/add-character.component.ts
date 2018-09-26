@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { CharacterDBService } from '../shared/character-db.service';
-import { Character } from '../shared/characterDB';
+import { DBcharacter } from '../shared/characterDB';
 
 declare var M: any;
 
@@ -31,7 +31,7 @@ export class AddCharacterComponent implements OnInit {
       _id: "",
       name: "",
       realm: "",
-      region: "",
+      locale: "",
     }
   }
 
@@ -55,11 +55,11 @@ export class AddCharacterComponent implements OnInit {
 
   refreshCharacterList() {
     this.characterDBService.getCharacterList().subscribe((res) => {
-      this.characterDBService.characters = res as Character[];
+      this.characterDBService.characters = res as DBcharacter[];
     });
   }
 
-  onEdit(char: Character) {
+  onEdit(char: DBcharacter) {
     this.characterDBService.selectedCharacter = char;
   }
 

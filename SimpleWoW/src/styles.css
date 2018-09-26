@@ -6,7 +6,7 @@
 body {
     
     background-color: #002841;
-    /* background-image: url("https://steamuserimages-a.akamaihd.net/ugc/861738332829394932/2EA432F9FDDDCEF93BABF7FE0EE2ABD967B49F60/"); */
+    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/861738332829394932/2EA432F9FDDDCEF93BABF7FE0EE2ABD967B49F60/");
     background-size: auto;
     background-repeat: no-repeat;
     height: 100%;
@@ -18,7 +18,8 @@ body {
     background-color: #002841;  
 }
 .btn {
-    background-color: #002841;  
+    background-color: #002841; 
+    margin: 2px; 
 }
 .btn:focus {
     background-color: #002841;  
@@ -30,8 +31,14 @@ body {
     box-shadow: 1px 1px 1px 2px black;
 }
 
+.card {
+    margin: 5px;
+    background-color: #004b7a;
+}
+
+
 .app-wrapper {
-    width: 52vw;
+    /* width: 52vw; */
     height: 100vh;
     margin: 0px auto;
     margin-top: 2px;

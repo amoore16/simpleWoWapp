@@ -1,19 +1,25 @@
-<h2> get a character </h2>
-
-<button (click)="logData()" class="waves-effect waves-light btn">{{characterName}}
-</button>
-
-<div *ngIf="showData">
-
-    
-    <h3>{{characterName}}</h3>
-    <h6>{{characterRealm}}</h6>
-    
-    <ul>
-        <li>Health: {{chrHealth}}</li>
-        <li>Mana: {{chrMana}}</li>
-        <li>Armor: {{chrArmor}}</li>
-    </ul>
-
+<div class="row">
+    <div class="card col s6 m6 offset-m3">    
+        <div class="card-content">
+            <div class="row">
+                <h2> get a character </h2>
+                <ul>
+                    <li *ngFor="let char of characterDBService.characters">
+                        <button (click)="" class="btn waves-effect waves-light">{{char.name}}</button>
+                    </li>
+                </ul>                
+                <div *ngIf="showData">
+                    <h3>{{characterName}}</h3>
+                    <h6>{{characterRealm}}</h6>
+                    <ul>
+                        <li>Health: {{chrHealth}}</li>
+                        <li>Mana: {{chrMana}}</li>
+                        <li>Armor: {{chrArmor}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>  
+    </div>
 </div>
+
 

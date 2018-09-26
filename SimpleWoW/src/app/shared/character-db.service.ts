@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Character } from './characterDB';
+import { DBcharacter } from './characterDB';
 
 @Injectable({
   providedIn: 'root',
@@ -11,13 +11,13 @@ import { Character } from './characterDB';
 
 export class CharacterDBService {
   
-  selectedCharacter: Character;
-  characters: Character[];
+  selectedCharacter: DBcharacter;
+  characters: DBcharacter[];
   readonly baseURL = 'http://localhost:1337/characters';
 
   constructor(private http: HttpClient) { }
 
-  postCharacter(char: Character) {
+  postCharacter(char: DBcharacter) {
     return this.http.post(this.baseURL, char);
   }
 
@@ -25,7 +25,7 @@ export class CharacterDBService {
     return this.http.get(this.baseURL);
   }
 
-  putCharacter(char: Character) {
+  putCharacter(char: DBcharacter) {
     return this.http.put(this.baseURL + `/${char._id}`, char);
   }
 

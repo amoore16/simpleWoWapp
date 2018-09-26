@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from './character.service';
+import { CharacterDBService } from '../shared/character-db.service'
 import { Observable } from '../../../node_modules/rxjs';
 import { Character } from './character';
+import { DBcharacter } from '../shared/characterDB'
 
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.css'],
-  providers: [CharacterService]
+  providers: [CharacterService, CharacterDBService]
 })
 export class CharacterComponent implements OnInit {
 
@@ -26,11 +28,21 @@ export class CharacterComponent implements OnInit {
   chrMastery: number;
   chrVersatillity: number;
 
-  constructor(private characterService: CharacterService) { }
+  constructor(private characterService: CharacterService, private characterDBService: CharacterDBService) { }
 
   ngOnInit() {
-    this.getCharacterData();
+    this.getDBcharacters();
   }
+
+  getDBcharacters() {
+    this.characterDBService.getCharacterList().subscribe((res) => {
+      this.characterDBService.characters = res as DBcharacter[];
+    });
+  }
+
+  
+
+
 
   getCharacterData () {
     this.characterService.getCharacterData()

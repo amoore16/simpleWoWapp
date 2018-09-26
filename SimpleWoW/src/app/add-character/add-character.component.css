@@ -1,8 +1,20 @@
 .card {
     background-color: #007bb4;
-
 }
 
 a {
     color: #fff !important;
 }
+
+li {
+    background-color: #002841;
+    padding: 10px;
+    color: #FFF;
+    margin: 2px; 
+}
+
+
+label {
+    color: #FFF;
+}
+

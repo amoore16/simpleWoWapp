@@ -1,5 +1,5 @@
-export class Character {
-    name: string;
-    realm: string;
-    region: string;
+import { DBcharacter } from '../shared/characterDB' 
+
+export class Character extends DBcharacter { 
+   
 }
