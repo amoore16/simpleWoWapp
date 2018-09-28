@@ -5,7 +5,7 @@
                 <h2> get a character </h2>
                 <ul>
                     <li *ngFor="let char of characterDBService.characters">
-                        <button (click)="" class="btn waves-effect waves-light">{{char.name}}</button>
+                        <button class="btn waves-effect waves-light">{{char.name}}</button>
                     </li>
                 </ul>                
                 <div *ngIf="showData">
