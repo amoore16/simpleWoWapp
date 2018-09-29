@@ -1,17 +1,29 @@
 TODOS:
 
+*** Make env variables
+
+*** Themeing
+
+
+
 ** CRUD Operations:
-    - Create
-    - Read
+    - Create -- Done
+    - Read -- Done
     - Update
     - Delete
 
-** Home screen:
+
+
+**** Home screen:
     - Material Cards Select Options
         - View Characters
         - Add Character
-    
-** When adding a character:
+
+
+****** User Login and account
+
+
+****** When adding a character:
     - Change 'Region' to select form
         
     - Make Realm Searchable / Dropdown
