@@ -1,5 +1,8 @@
-import { DBcharacter } from '../shared/characterDB' 
-
-export class Character extends DBcharacter { 
+export class Character {
+     constructor (
+         public name: string,
+         public realm: string,
+         public locale: string, 
+     ) { }
    
 }

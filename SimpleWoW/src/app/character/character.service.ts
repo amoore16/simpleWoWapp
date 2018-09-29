@@ -15,7 +15,7 @@ export class CharacterService {
   constructor(private http: HttpClient) { }
 
   character: Character = {
-    _id: '',
+    
     name: '',
     realm: '',
     locale: ''

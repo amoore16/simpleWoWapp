@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { CharacterDBService } from '../shared/character-db.service';
 import { DBcharacter } from '../shared/characterDB';
@@ -15,7 +16,8 @@ declare var M: any;
 })
 export class AddCharacterComponent implements OnInit {
 
-  constructor(private characterDBService: CharacterDBService) { }
+  constructor(private characterDBService: CharacterDBService,
+              private router: Router) { }
 
   ngOnInit() {
       this.resetForm();
@@ -23,28 +25,25 @@ export class AddCharacterComponent implements OnInit {
   }
 
   resetForm(form?: NgForm) {
-    console.log('reset hit');
-    if (form) {
+    if (form) 
       form.reset();
-    }
-    this.characterDBService.selectedCharacter = {
-      _id: "",
-      name: "",
-      realm: "",
-      locale: "",
-    }
+    this.characterDBService.selectedCharacter = new DBcharacter();
+
   }
 
   onSubmit(form: NgForm) {
-    console.log('submit hit');
-    if (form.value._id == "") {
+    console.log('submit hit', form.value._id);
+    if (form.value._id == "" || form.value._id == null) {
+      console.log('saved');
       this.characterDBService.postCharacter(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshCharacterList();
         M.toast({ html: 'Saved successfully', classes: 'rounded' });
+        setTimeout (() => this.router.navigate(['/characters']), 1000);
       });
     }
     else {
+      console.log('Updated');
       this.characterDBService.putCharacter(form.value).subscribe((res)=> {
         this.resetForm(form);
         this.refreshCharacterList();
@@ -56,6 +55,7 @@ export class AddCharacterComponent implements OnInit {
   refreshCharacterList() {
     this.characterDBService.getCharacterList().subscribe((res) => {
       this.characterDBService.characters = res as DBcharacter[];
+      console.log(this.characterDBService.selectedCharacter);
     });
   }
 

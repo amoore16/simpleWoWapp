@@ -1,20 +1,28 @@
-.card {
-    background-color: #007bb4;
-}
+
 
 a {
     color: #fff !important;
 }
 
 li {
-    background-color: #002841;
+    /* background-color: #002841; */
     padding: 10px;
     color: #FFF;
-    margin: 2px; 
+    margin: 2px;
+    height: 40px; 
 }
 
 
 label {
     color: #FFF;
 }
+.card {
+    background-color: #007bb4;
+    border: 5px solid #002841;
+    border-radius: 5px;
+}
 
+.card-content {
+    background-color: #002841;
+    margin: 20px;
+}

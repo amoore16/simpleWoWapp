@@ -1,9 +1,9 @@
 export class DBcharacter {
-    constructor(
-        public _id: string,
-        public name: string,
-        public realm: string,
-        public locale: string
-    ) { }
+    
+    _id: string = "";
+    name: string = "";
+    realm: string = "";
+    locale: string = "";
+    
     
 }
