@@ -44,6 +44,11 @@ export class CharacterComponent implements OnInit {
     });
   }
 
+  onClick(event) {
+    console.log(event);
+    //send character data to characterApiService
+  }
+
   // getCharacterData () {
   //   this.characterService.getCharacterData()
   //   .subscribe(data => 
