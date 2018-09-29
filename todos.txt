@@ -1,18 +1,18 @@
 TODOS:
 
+// * is difficulty level
+
+* setupd batch script to run servers                     -- Done
+
+** CRUD Operations:
+    - Create                                             -- Done
+    - Read                                               -- Done
+    - Update    
+    - Delete
+
 *** Make env variables
 
 *** Themeing
-
-
-
-** CRUD Operations:
-    - Create -- Done
-    - Read -- Done
-    - Update
-    - Delete
-
-
 
 **** Home screen:
     - Material Cards Select Options
@@ -23,7 +23,7 @@ TODOS:
 ****** User Login and account
 
 
-****** When adding a character:
+***** When adding a character:
     - Change 'Region' to select form
         
     - Make Realm Searchable / Dropdown
