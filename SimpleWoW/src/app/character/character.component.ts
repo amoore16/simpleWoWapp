@@ -15,21 +15,8 @@ declare var M: any;
 })
 export class CharacterComponent implements OnInit {
 
-  // showData: boolean = false;
-  // characterData: any;
-  // characterName: string;
-  // characterRealm: string;
-  // characterStats: any;
-  // chrHealth: number;
-  // chrMana: number;
-  // chrInt: number;
-  // chrStam: number;
-  // chrArmor: number;
-  // chrCrit: number;
-  // chrHaste: number;
-  // chrMastery: number;
-  // chrVersatillity: number;
-
+  chrAchieve: number;
+  
   constructor(private characterService: CharacterService, private characterDBService: CharacterDBService) { }
 
   ngOnInit() {
@@ -44,11 +31,21 @@ export class CharacterComponent implements OnInit {
     });
   }
 
-  onClick(event) {
-    console.log(event);
-    //send character data to characterApiService
+  onClick(char) {
+    this.characterService.character = char;
+    if (this.characterService.character) {
+      this.characterService.getCharacterData().subscribe(data => {
+        if (data) {
+          this.handleData(data.body);
+        }
+      });
+    }
   }
 
+  handleData(data) {
+    console.log(data);
+    this.chrAchieve = data.achievementPoints;
+  }
   // getCharacterData () {
   //   this.characterService.getCharacterData()
   //   .subscribe(data => 

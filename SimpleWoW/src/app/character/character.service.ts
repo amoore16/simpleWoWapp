@@ -2,29 +2,34 @@ import { Injectable } from '@angular/core';
 import { Character } from './character';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from '../../../node_modules/rxjs';
-
+import { environment } from '../../environments/environment';
 //  
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
 
-  private apiKey = 'ng3pcxmk57nk36wtsvfucg8f6hnj8e4m';
 
+  private apiKey = environment.apiKey;
+  private apiUrl: string;
   constructor(private http: HttpClient) { }
 
   character: Character = {
-    
     name: '',
     realm: '',
     locale: ''
   };
 
-  blizzUrl = 'https://us.api.battle.net/wow/character/' + this.character.realm + '/' + this.character.name + '?fields=stats&locale=' + this.character.locale + '&apikey=' + this.apiKey ; 
+  constructURL() {
+    this.apiUrl = 'https://us.api.battle.net/wow/character/' + this.character.realm + '/' + this.character.name + '?fields=stats&locale=' + this.character.locale + '&apikey=' + this.apiKey ; 
+  }
 
   getCharacterData (): Observable<any> {
-    return this.http.get(this.blizzUrl, {observe: 'response'});
+    this.constructURL();
+    return this.http.get(this.apiUrl, {observe: 'response'});
   }
 
   

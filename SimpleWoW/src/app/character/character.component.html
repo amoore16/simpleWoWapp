@@ -4,8 +4,10 @@
             <div class="row">
                 <ul class="collapsible">
                     <li *ngFor="let char of characterDBService.characters">
-                        <div class="collapsible-header" (click)="onClick($event)">{{char.name}}</div>
-                        <div class="collapsible-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, corrupti temporibus. Incidunt, nam neque. Assumenda eaque dolor ipsam beatae vitae </div>
+                        <div class="collapsible-header" (click)="onClick(char)">{{char.name}}</div>
+                        <div class="collapsible-body">
+                            {{chrAchieve}} 
+                        </div>
                     </li>
                 </ul>                
             </div>

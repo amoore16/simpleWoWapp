@@ -3,28 +3,42 @@ TODOS:
 // * is difficulty level
 
 * setupd batch script to run servers                     -- Done
-
+=================================================================
 ** CRUD Operations:
     - Create                                             -- Done
     - Read                                               -- Done
     - Update    
     - Delete
 
-*** Make env variables
+*** Make env variables                                   -- Done
 
+==================================================================
+*** Api call and display character
+    - click event binds character
+    - pass character into service
+    - make api call
+
+===================================================================
 *** Themeing
 
+===================================================================
 **** Home screen:
     - Material Cards Select Options
         - View Characters
         - Add Character
 
-
+====================================================================
 ****** User Login and account
 
 
-***** When adding a character:
+
+====================================================================
+*** When adding a character:
     - Change 'Region' to select form
         
     - Make Realm Searchable / Dropdown
         - Api Call / Quick Search
+
+
+
+
