@@ -7,6 +7,7 @@ import { DBcharacter } from '../shared/characterDB'
 
 declare var M: any;
 
+
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
@@ -14,7 +15,8 @@ declare var M: any;
   providers: [CharacterService, CharacterDBService]
 })
 export class CharacterComponent implements OnInit {
-
+  
+  gotData: boolean = false;
   chrAchieve: number;
   
   constructor(private characterService: CharacterService, private characterDBService: CharacterDBService) { }
@@ -28,49 +30,35 @@ export class CharacterComponent implements OnInit {
   getDBcharacters() {
     this.characterDBService.getCharacterList().subscribe((res) => {
       this.characterDBService.characters = res as DBcharacter[];
+      this.apiCall(this.characterDBService.characters);
     });
   }
 
-  onClick(char) {
-    this.characterService.character = char;
-    if (this.characterService.character) {
-      this.characterService.getCharacterData().subscribe(data => {
-        if (data) {
-          this.handleData(data.body);
-        }
-      });
-    }
+  apiCall(characters) {
+    characters.forEach((char) => {
+      this.characterService.character = char;
+      if (this.characterService.character){
+        this.characterService.getCharacterData().subscribe(data => {
+          if (data) {
+            this.handleData(data.body);
+          }
+        });
+      }
+    });
   }
 
   handleData(data) {
     console.log(data);
     this.chrAchieve = data.achievementPoints;
   }
-  // getCharacterData () {
-  //   this.characterService.getCharacterData()
-  //   .subscribe(data => 
-  //     this.characterData = data.body);
-  //    //change observable maybe? 
-  //    this.characterName = this.characterService.character.name;
-  //    this.characterRealm = this.characterService.character.realm;
-     
-  //   }
 
-    // logData() {
-    //   console.log(this.characterData);
-    //   this.showData = true;
-    //   this.characterStatsFunction(this.characterData.stats);
-
-    // }
-
-    // characterStatsFunction(stats) {
-    //   this.chrHealth = stats.health;
-    //   this.chrMana = stats.power;
-    //   this.chrInt = stats.int;
-    //   this.chrStam = stats.sta;
-    //   this.chrArmor = stats.armor;
-    //   this.chrCrit = stats.crit;
-    //   this.chrMastery = stats.mastery;
-    //   this.chrVersatillity = stats.versatillity;
-    // }
+  onDelete(_id: string) {
+    if (confirm('Are you sure you wish to delete this Character?') ==true) {
+      this.characterDBService.deleteCharacter(_id).subscribe((res) => {
+        this.getDBcharacters();
+        M.toast({ html: 'Deleted Successfully', classes: 'rounded' })
+      });
+    }
+  }
+  
 }

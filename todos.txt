@@ -14,10 +14,12 @@ TODOS:
 
 ==================================================================
 *** Api call and display character
-    - click event binds character
-    - pass character into service
-    - make api call
-
+    - click event binds character                        -- Done
+    - pass character into service                        -- Done
+    - make api call                                      -- Done
+    - Display Selected Data
+        - make stats class?
+         
 ===================================================================
 *** Themeing
 

@@ -34,7 +34,6 @@ export class AddCharacterComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log('submit hit', form.value._id);
     if (form.value._id == "" || form.value._id == null) {
-      console.log('saved');
       this.characterDBService.postCharacter(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshCharacterList();
@@ -43,7 +42,6 @@ export class AddCharacterComponent implements OnInit {
       });
     }
     else {
-      console.log('Updated');
       this.characterDBService.putCharacter(form.value).subscribe((res)=> {
         this.resetForm(form);
         this.refreshCharacterList();
@@ -55,7 +53,6 @@ export class AddCharacterComponent implements OnInit {
   refreshCharacterList() {
     this.characterDBService.getCharacterList().subscribe((res) => {
       this.characterDBService.characters = res as DBcharacter[];
-      console.log(this.characterDBService.selectedCharacter);
     });
   }
 

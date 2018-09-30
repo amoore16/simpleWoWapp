@@ -3,9 +3,6 @@ import { Character } from './character';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from '../../../node_modules/rxjs';
 import { environment } from '../../environments/environment';
-//  
-
-
 
 @Injectable({
   providedIn: 'root'

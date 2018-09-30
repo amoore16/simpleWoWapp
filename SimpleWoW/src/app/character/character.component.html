@@ -4,13 +4,26 @@
             <div class="row">
                 <ul class="collapsible">
                     <li *ngFor="let char of characterDBService.characters">
-                        <div class="collapsible-header" (click)="onClick(char)">{{char.name}}</div>
+                        <div class="collapsible-header light-blue">{{char.name}}</div>
                         <div class="collapsible-body">
-                            {{chrAchieve}} 
+                            <div class="row">
+                                <div class="card">
+                                    <div class="card-content">
+                                        {{chrAchieve}} 
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quisquam ducimus consequuntur tempore nam pariatur
+                                    </div>
+                                    <div class="card-action">
+                                            <a class="waves-effect waves-light btn" (click)="onDelete(char._id)"><i class="material-icons right">delete</i>Delete</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ul>                
             </div>
+        </div>
+        <div class="card-action">
+                <a routerLink="/addCharacter" class="waves-effect waves-light btn light-blue darken-4" ><i class="material-icons right">person_add</i>Add Character</a>
         </div>  
     </div>
 </div>
